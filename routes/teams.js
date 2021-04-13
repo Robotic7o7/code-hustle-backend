@@ -31,7 +31,7 @@ router.get("/:id", async function (req, res) {
 router.get("/wallet/:id", async function (req, res) {
     try {
         const team = await Team.findById(req.params.id);
-        res.status(200).json(team.teamWallet);
+        res.status(200).json({ teamWallet: team.teamWallet });
     } catch (err) {
         res.status(500).json({ error: err });
     }
